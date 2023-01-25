@@ -4,17 +4,151 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dadoware PT-br</title>
+
+  <style>
+    .center {
+      text-align: center;
+    }
+  </style>
+
+  <title>Dadoware Pt-br</title>
 </head>
 
 <body>
-  <label for="palavras">
-    Número de palavras:
-  </label><input id="palavras" type="number" value="6" />
-  
-  <button onclick="gerarChave()"> Gerar chave</button>
-  <div id="chave"></div>
 
+  <h1>
+    <span style="background: #ffffcc">Diceware em Português (br) </span>
+  </h1>
+  <p>Esta página oferece uma maneira de criar uma "senha-frase" forte, ainda que fácil de lembrar. Foi desenvolvida
+    baseada no métdo <a target="_blank" href="http://world.std.com/~reinhold/diceware.html">diceware</a> criado por
+    Arnold G. Reinhold. A <a href="https://github.com/thoughtworks/dadoware/blob/master/livreto/dadoware-lista.pdf"
+      target="_blank">lista</a> de palavras utilizada é <a target="_blank"
+      href="https://github.com/thoughtworks/dadoware">desse projeto
+      da ThoughtWorks</a></p>
+
+
+
+  <label for="palavras">
+    Número de palavras: <input id="palavras" type="number" value="6" />
+  </label>
+
+  <button onclick="gerarChave()" class="btn"> Gerar chave</button>
+  <div style="margin-top: 5px;"> <label>Chave:</label> <span id="chave" style="background: #e3e6e3"></span></div>
+
+  <h3>Porque diceware?</h3>
+
+  <p>Se você usa senhas fracas, não adianta ter um sistema
+    criptográfico forte. Por isso é importante usar frases-senha
+    (passphrases) para tudo que você quiser proteger de
+    verdade no mundo digital. Uma frase-senha é bem mais
+    longa que uma senha comum: dezenas de caracteres, em
+    vez de 10 ou menos. Mas, se for composta por palavras
+    comuns, pode ser muito mais fácil de lembrar. E se você
+    usar palavras escolhidas aleatoriamente, será muito difícil
+    de quebrar.</p>
+
+  <p>Há muitas recomendações diferentes disponíveis na Internet sobre como escolher uma frase-senha. Algumas são boas,
+    alguns são ruins, mas quase todos exigem que o usuário julgue o que será difícil para outra pessoa adivinhar. Alguns
+    não dão
+    orientação sobre como fazer isso, outros fazem cálculos matemáticos complexos. Em contraste, o método Diceware de
+    geração de frases-passe é:</p>
+
+  <ul>
+    <li>
+      <p>Fácil de aprender e usar;
+      </p>
+    </li>
+    <li>
+      <p>Seguro;
+      </p>
+    </li>
+    <li>
+      <p>Totalmente prescritivo - diz o que fazer em cada etapa do processo;
+      </p>
+    </li>
+    <li>
+      <p>Transparente;
+      </p>
+    </li>
+    <li>
+      <p>Livre – não há computador
+        software ou hardware necessário, apenas a <a
+          href="https://github.com/thoughtworks/dadoware/blob/master/livreto/dadoware-lista.pdf">lista de palavras</a> e
+        alguns
+        dados comuns.
+      </p>
+    </li>
+  </ul>
+
+  <h3>Como uma frase-senha é sorteada?</h3>
+
+  <p>Você precisa jogar 5 dados para sortear cada palavra – ou
+    pode jogar só um dado 5 vezes para cada palavra.
+  <ul>
+    <li>Os dois primeiros dados definem a página da lista de
+      palavras. Por exemplo: é a página <span style="font-size: 30px;">⚃ ⚀</span> 4,1.</li>
+    <li>Os dados restantes definem a palavra dentro da
+      página: (365) é <span style="font-size: 30px;">⚂ ⚅ ⚄</span> <strong>”jazida”</strong>, na página 4,1.</li>
+  </ul>
+
+  <h4>Exemplo completo: frase-senha de 6 palavras</h4>
+  <p>
+    Joque 5 dados 6 vezes, ou um dado 30 vezes, anotando os
+    resultados de 5 em 5. Eis o resumo do exemplo completo:
+  </p>
+
+
+
+  Repita o processo para cada palavra da frase-senha.</p>
+
+  <table border="1px">
+    <thead>
+      <tr>
+        <th>dados</th>
+        <th>página</th>
+        <th>palavra</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-size: 30px; padding: 0 5px;" class="center">⚂ ⚃ ⚄ ⚃ ⚃</td>
+        <td class="center">3,4</td>
+        <td style="padding: 0 5px;"><strong>544</strong> galera</td>
+      </tr>
+      <tr>
+        <td style="font-size: 30px; padding: 0 5px;" class="center">⚀ ⚁ ⚃ ⚅ ⚃ </td>
+        <td class="center">1,2</td>
+        <td style="padding: 0 5px;"><strong>464</strong> amanhã</td>
+      </tr>
+      <tr>
+        <td style="font-size: 30px; padding: 0 5px;" class="center">⚂ ⚁ ⚃ ⚄ ⚃</td>
+        <td class="center">3,2</td>
+        <td style="padding: 0 5px;"><strong>454</strong> fabril</td>
+      </tr>
+      <tr>
+        <td style="font-size: 30px; padding: 0 5px;" class="center">⚃ ⚄ ⚄ ⚅ ⚅</td>
+        <td class="center">4,5</td>
+        <td style="padding: 0 5px;"><strong>566</strong> naipe</td>
+      </tr>
+      <tr>
+        <td style="font-size: 30px; padding: 0 5px;" class="center">⚅ ⚁ ⚅ ⚅ ⚄ </td>
+        <td class="center">6,2</td>
+        <td style="padding: 0 5px;"><strong>665</strong> suspiro</td>
+      </tr>
+      <tr>
+        <td style="font-size: 30px; padding: 0 5px;" class="center">⚁ ⚂ ⚄ ⚃ ⚄</td>
+        <td class="center">2,3</td>
+        <td style="padding: 0 5px;"><strong>545</strong> comício</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    <strong>Frase-senha resultante: </strong> <span>galera amanhã fabril naipe suspiro comício</span>
+  </p>
+
+  <hr>
+
+  <p>Desenvolvido por <a href="https://github.com/brunoflins" target="_blank">Bruno Lins</a> @ 2023</p>
 
   <script type="text/javascript">
 
